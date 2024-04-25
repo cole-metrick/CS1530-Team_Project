@@ -1,12 +1,12 @@
 public class Student {
     //student class 
     String name;
-    Educator educator;
+    String  educator;
     Game game;
 
     public Student() {
         name = "";
-        educator = new Educator();
+        educator = "";
         game = new Game();
     }
 
