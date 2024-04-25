@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Game {
     String learningPath;
     String languages[];
-    ArrayList<CodingChallenge> codingChallenges;
-    ArrayList<CodingChallenge> assignedChallenges;
-    ArrayList<CodingChallenge> inProgressChallenges;
-    ArrayList<CodingChallenge> completedChallenges;
+    ArrayList<CodingChallenge> codingChallenges; //list of challenges held within game (unique for each student)
+    ArrayList<CodingChallenge> assignedChallenges;//challenges assigned by teacher to student
+    ArrayList<CodingChallenge> inProgressChallenges; //in progress challenges
+    ArrayList<CodingChallenge> completedChallenges; //completed
 
 
     public Game() {

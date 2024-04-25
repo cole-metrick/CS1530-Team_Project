@@ -1,53 +1,99 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-class Main {
-  public static void main(String[] args) {
-    System.out.println("Welcome to Coding Challenge!");
-    System.out.print("Please select your status: \n[1] Student\n[2] Educator: ");
+public class Main extends JFrame implements ActionListener {
+    private JLabel statusLabel;
 
-    Scanner myScanner = new Scanner(System.in);
-    int input = myScanner.nextInt();
+    public Main() {
+        setTitle("Coding Challenge");
+        setSize(600, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    if (input == 1){
-      System.out.print("Hello Student. What is your name?  ");
-      String name = myScanner.next();
-      System.out.print("What is your Educator's name?  ");
-      String user = myScanner.next();
-      Student student = new Student(name, user);
-      
+        //all da colors and fonts ahhhhh
+        Color backgroundColor = new Color(255, 204, 204);//pink
+        Color buttonColor = new Color(255, 153, 153); //pink
+        Font labelFont = new Font("Comic Sans MS", Font.BOLD, 20);
+        Font buttonFont = new Font("Comic Sans MS", Font.BOLD, 16);
+
+        //GUI components
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(6, 2));
+        panel.setBackground(backgroundColor);
+
+        JLabel welcomeLabel = new JLabel("Welcome to Coding Challenge!");
+        welcomeLabel.setFont(labelFont);
+        panel.add(welcomeLabel);
+
+        statusLabel = new JLabel("Please select your status:");
+        statusLabel.setFont(labelFont);
+        panel.add(statusLabel);
+
+        JButton studentButton = new JButton("Student");
+        studentButton.setActionCommand("Student");
+        studentButton.addActionListener(this);
+        studentButton.setBackground(buttonColor);
+        studentButton.setFont(buttonFont);
+        panel.add(studentButton);
+
+        JButton educatorButton = new JButton("Educator");
+        educatorButton.setActionCommand("Educator");
+        educatorButton.addActionListener(this);
+        educatorButton.setBackground(buttonColor);
+        educatorButton.setFont(buttonFont);
+        panel.add(educatorButton);
+
+        add(panel);
+        setVisible(true);
     }
-    else {
-      System.out.print("Hello Educator. What is your name?  ");
-      String name = myScanner.next();
-      System.out.print("What is your student's name?  ");
-      String student = myScanner.next();
-      Educator user = new Educator(name, student);
 
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        if (command.equals("Student")) {//student input
+            String name = showInputDialogWithStyle("Hello Student. What is your name?", "Student's Name");
+            String educatorName = showInputDialogWithStyle("What is your Educator's name?", "Educator's Name");
+            statusLabel.setText("Hello " + name);
 
-      System.out.print("Please select the task you wish to work on:\n[1] Assign coding Challenge\n[0] Quit ");
-      input = myScanner.nextInt();
-      if (input == 1)
-      {
+            // Check if the student has challenges assigned
+            Student student = new Student(name, educatorName);
+            if (student.hasChallengesAssigned()) {
+                JOptionPane.showMessageDialog(this, name + " has challenges assigned.");
+            } //only show for challenges
+        } else if (command.equals("Educator")) { //educator input
+            String name = showInputDialogWithStyle("Hello Educator. What is your name?", "Educator's Name");
+            String studentName = showInputDialogWithStyle("What is your student's name?", "Student's Name");
+            statusLabel.setText("Hello " + name);
 
-            System.out.print("Enter the Title of the Coding Challenge: ");
-            String title = myScanner.next();
-            System.out.print("Enter a Description of the Challenge: ");
-            String desc = myScanner.next();
-            System.out.print("Enter the Difficulty Level (Easy, Medium, Hard): ");
-            String diff = myScanner.next();
-            System.out.print("Enter Coding language: ");
-            String lang = myScanner.next();
+            // Educator assigns challenges to the student
+            Educator educator = new Educator(name, studentName);
+            String title = showInputDialogWithStyle("Enter the Title of the Coding Challenge:", "Title");
+            String desc = showInputDialogWithStyle("Enter a Description of the Challenge:", "Description");
+            String diff = showInputDialogWithStyle("Enter the Difficulty Level (Easy, Medium, Hard):", "Difficulty Level");
+            String lang = showInputDialogWithStyle("Enter Coding language:", "Language");
 
-            CodingChallenge challenge = new CodingChallenge(title, desc, diff,lang);
-            user.addCodingChallenge(challenge);
-            System.out.print(challenge);
+            // Create + assign the coding challenge
+            CodingChallenge challenge = new CodingChallenge(title, desc, diff, lang);
+            educator.addCodingChallenge(challenge);
 
-      }
-      else {
-  
-      }
-
-      myScanner.close();
+            JOptionPane.showMessageDialog(this, "Coding Challenge Assigned to: "+name+"\n" + challenge);
+        }
     }
-  }
+
+    // make it pretty tbh
+    private String showInputDialogWithStyle(String message, String title) {
+        JTextField inputField = new JTextField(10);
+        inputField.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(255, 255, 204)); //yellow
+        panel.add(new JLabel(message));
+        panel.add(inputField);
+        JOptionPane.showConfirmDialog(null, panel, title, JOptionPane.OK_CANCEL_OPTION);
+        return inputField.getText();
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
 }

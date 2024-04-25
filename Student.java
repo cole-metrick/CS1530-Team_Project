@@ -1,4 +1,5 @@
 public class Student {
+    //student class 
     String name;
     Educator educator;
     Game game;
@@ -10,6 +11,7 @@ public class Student {
     }
 
     public Student(String n, String e) {
+        //creates the student name and assigned educator with it. Game filled with challenges assigned
         name = n;
         educator = e;
         game = new Game();
