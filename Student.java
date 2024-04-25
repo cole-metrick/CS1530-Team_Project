@@ -16,4 +16,9 @@ public class Student {
         educator = e;
         game = new Game();
     }
+
+        public boolean hasChallengesAssigned() {
+        return !game.assignedChallenges.isEmpty();
+    }
 }
+
