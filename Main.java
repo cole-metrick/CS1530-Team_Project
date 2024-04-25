@@ -40,6 +40,7 @@ class Main {
 
             CodingChallenge challenge = new CodingChallenge(title, desc, diff,lang);
             user.addCodingChallenge(challenge);
+            System.out.print(challenge);
 
       }
       else {
