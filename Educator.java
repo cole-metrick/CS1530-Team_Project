@@ -21,6 +21,7 @@ public class Educator {
         //adds the challnege to the list of possible challenges
         System.out.println("Adding Challenge...");
         game.codingChallenges.add(challenge);
+        game.assignedChallenges.add(challenge);
     }
 
 }

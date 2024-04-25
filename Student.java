@@ -4,7 +4,7 @@ public class Student {
     Game game;
 
     public Student() {
-        name = "BLANK";
+        name = "";
         educator = new Educator();
         game = new Game();
     }
