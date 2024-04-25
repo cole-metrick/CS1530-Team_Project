@@ -9,7 +9,7 @@ public class Student {
         game = new Game();
     }
 
-    public Student(String n, Educator e) {
+    public Student(String n, String e) {
         name = n;
         educator = e;
         game = new Game();

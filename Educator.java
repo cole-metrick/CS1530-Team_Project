@@ -7,7 +7,7 @@ public class Educator {
 
     public Educator() {
         name = "";
-        student = ""
+        student = "";
         game = new Game();
     }
 
