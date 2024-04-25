@@ -1,13 +1,11 @@
 public class CodingChallenge {
-    String language;
-    int progress;
-    String[] hints;
-    String[] explanation;
+   String title, desc, diff, lang;
 
-    public CodingChallenge(String l) {
-        language = l;
-        progress = 0;
-        hints = new String[]{"Hint1", "Hint2", "Hint3"};
-        explanation = new String[]{"Exp1", "Exp2", "Exp3"};
+    public CodingChallenge(String title, Stirng desc, String diff, String lang) {
+        this.title = title; 
+        this.desc = desc;
+        this.diff = diff;
+        this.lang = lang;
+        
     }
-}
+    }

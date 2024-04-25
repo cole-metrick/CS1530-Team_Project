@@ -8,6 +8,7 @@ public class Game {
     ArrayList<CodingChallenge> inProgressChallenges;
     ArrayList<CodingChallenge> completedChallenges;
 
+
     public Game() {
         learningPath = "NONE";
         languages = new String[]{"C", "C++", "C#", "Java", " Python"};
@@ -25,4 +26,5 @@ public class Game {
         inProgressChallenges = new ArrayList<>();
         completedChallenges = new ArrayList<>();
     }
+
 }

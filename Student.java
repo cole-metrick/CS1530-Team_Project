@@ -9,12 +9,6 @@ public class Student {
         game = new Game();
     }
 
-    public Student(String n) {
-        name = n;
-        educator = new Educator();
-        game = new Game();
-    }
-
     public Student(String n, Educator e) {
         name = n;
         educator = e;

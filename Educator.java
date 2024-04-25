@@ -2,28 +2,25 @@ import java.util.ArrayList;
 
 public class Educator {
     String name;
-    ArrayList<Student> student;
+    String student;
     Game game;
 
     public Educator() {
-        name = "BLANK";
-        student = new ArrayList<>();
+        name = "";
+        student = ""
         game = new Game();
     }
 
-    public Educator(String n) {
-        name = n;
-        student = new ArrayList<>();
-        game = new Game();
-    }
-
-    public Educator(String n, ArrayList<Student> stud) {
+    public Educator(String n, String stud) {
         name = n;
         student = stud;
         game = new Game();
     }
 
-    public void assignCodingChallenge() {
-        System.out.println("Assigning Challenge...");
+    public void addCodingChallenge(CodingChallenge challenge) {
+        //adds the challnege to the list of possible challenges
+        System.out.println("Adding Challenge...");
+        game.codingChallenges.add(challenge);
     }
+
 }
