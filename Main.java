@@ -93,6 +93,10 @@ public class Main extends JFrame implements ActionListener {
         return inputField.getText();
     }
 
+    public JLabel getStatusLabel() {
+        return statusLabel;
+    }
+
     public static void main(String[] args) {
         new Main();
     }
