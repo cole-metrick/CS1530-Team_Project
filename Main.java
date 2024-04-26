@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Main extends JFrame implements ActionListener {
-    private JLabel statusLabel;
+    public JLabel statusLabel;
 
     public Main() {
         setTitle("Coding Challenge");
