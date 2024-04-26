@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+//basic junit tests tbh 
 
 
 //testing for Main --- intersection of all sub/inhereted classes. 
@@ -15,7 +16,7 @@ class Test {
 
     @BeforeEach
     void setUp() {
-        main = new Main();
+        main = new Main(); //main instance 
     }
 
     @Test
