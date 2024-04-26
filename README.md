@@ -9,7 +9,9 @@ Choose the educator option, input a name, then select assign coding challenge. O
 How to run: 
 
 cd CS1530-Team_project
+
 javac Main.java
+
 java Main.java 
 
 ...follow instructions given 
