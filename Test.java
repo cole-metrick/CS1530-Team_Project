@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+
+//testing for Main --- intersection of all sub/inhereted classes. 
 class Test {
 
     private Main main;
@@ -17,13 +19,13 @@ class Test {
     }
 
     @Test
-    void testStatusLabelNotNull() {
+    void testStatusLabelNotNull() { //label for GUI
         JLabel statusLabel = main.getStatusLabel();
         assertNotNull(statusLabel);
     }
 
     @Test
-    void testActionPerformed_Student() {
+    void testActionPerformed_Student() { //Student check
         JButton studentButton = new JButton();
         studentButton.setActionCommand("Student");
         main.actionPerformed(new ActionEvent(studentButton, ActionEvent.ACTION_PERFORMED, "Student"));
@@ -32,7 +34,7 @@ class Test {
     }
 
     @Test
-    void testActionPerformed_Educator() {
+    void testActionPerformed_Educator() {//Educator Check
         JButton educatorButton = new JButton();
         educatorButton.setActionCommand("Educator");
         main.actionPerformed(new ActionEvent(educatorButton, ActionEvent.ACTION_PERFORMED, "Educator"));
